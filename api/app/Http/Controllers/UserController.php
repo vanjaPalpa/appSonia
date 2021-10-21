@@ -24,4 +24,13 @@ class UserController extends Controller
             ]);
         }
     }
+
+    public function index(){
+
+        $users = User::find(2)->documents;
+
+        return response([
+            'user_document' => $users
+        ]);
+    }
 }
