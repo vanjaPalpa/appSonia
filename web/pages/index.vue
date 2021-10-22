@@ -16,8 +16,8 @@
             * Sauvegarder et envoyer toutes les informations  </br>
           </p>
         <p class="text-gray-500">
-             Puis veuillez attendre jusqu'à ce que l'administrateur approuve toutes les informations que vous avez saisir </br>
-            Enfin, vous pouvez telecharger les documents
+            Puis veuillez attendre jusqu'à ce que l'administrateur approuve toutes les informations que vous avez saisir </br>
+            Enfin, vous pouvez telecharger les documents 
         </p>
     </div>
   </div>
