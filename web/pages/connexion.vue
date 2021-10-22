@@ -1,5 +1,5 @@
 <template>
   <div>
-    Connexion et enregistrement
+    Connexion et enregistrement zoma
   </div>
 </template>
