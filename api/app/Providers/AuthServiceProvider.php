@@ -30,5 +30,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('isMyAccount', function ($user, $id_user) {
             return $user->id == $id_user;
         });
+
+        Gate::define('isAdmin', function ($user) {
+            return $user->status;
+        });
     }
 }

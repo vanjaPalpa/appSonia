@@ -25,9 +25,15 @@ class UserController extends Controller
         }
     }
 
-    public function index(){
+    public function index(Request $request){
 
-        $users = User::find(2)->documents;
+        if(!Gate::allows('isAdmin')){
+            return response([
+                'message' => 'vous ete pas admin'
+            ]);
+        }
+
+        $users = User::find($request->user()->id)->documents;
 
         return response([
             'user_document' => $users
