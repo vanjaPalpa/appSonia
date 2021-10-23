@@ -3,7 +3,7 @@
     	<div class="min-w-full justify-center " :class="oks? 'hidden' : 'block'">
 			<div class="flex justify-center">
 				<!-- Row -->
-				
+
 					<!-- Col -->
 					<div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
 						<h3 class="cursor-pointer pt-4 text-2xl text-center" v-on:click="sat">Create an Account!</h3>
@@ -21,7 +21,7 @@
 									placeholder="Email"
 								/>
 							</div>
-							
+
 								<div class="mb-4">
 								<label class="block mb-2 text-sm font-bold text-gray-700" for="email">
 									Password
@@ -33,8 +33,8 @@
 									placeholder="***************"
 								/>
 							</div>
-								
-					
+
+
 							<div class="mb-6 text-center">
 								<button
 									class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
@@ -55,22 +55,22 @@
 							<div class="text-center">
 								<a
 									class="cursor-pointer inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-									 v-on:click="sot"
+									 v-on:click="sat"
 								>
-									Already have an account? Login!
+									Create your compte
 								</a>
 							</div>
 						</form>
-					
+
 				</div>
 			</div>
 		</div>
- 
+
 
 		<div class="container min-w-full justify-center" :class="oks? 'block' : 'hidden'">
 			<div class="flex justify-center">
 				<!-- Row -->
-			
+
 					<!-- Col -->
 					<div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
 						<h3 class="cursor-pointer pt-4 text-2xl text-center text-blue-500" v-on:click="sat">Create an Account!</h3>
@@ -123,7 +123,7 @@
 										type="password"
 										placeholder="******************"
 									/>
-								
+
 								</div>
 								<div class="md:ml-2">
 									<label class="block mb-2 text-sm font-bold text-gray-700" for="c_password">
@@ -163,7 +163,7 @@
 								</a>
 							</div>
 						</form>
-					
+
 				</div>
 			</div>
 		</div>
