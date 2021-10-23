@@ -12,6 +12,7 @@ class RequestCivilStatus extends Model
     protected $fillable = [
         'name_civils_status',
         'pattern',
+        'user_id'
     ];
 
     public function user()
