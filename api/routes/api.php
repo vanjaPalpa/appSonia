@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CitizenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::group(['middleware' => ['auth:sanctum']],function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::put('/user/{id}', [UserController::class, 'update']);
     Route::get('/user', [UserController::class, 'index']);
+    Route::get('/profile', [CitizenController::class, 'index']);
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

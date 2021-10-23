@@ -16,17 +16,17 @@ class CreateCitizenDataTable extends Migration
         Schema::create('citizen_data', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('first_name');
-            $table->date('birthday');
-            $table->string('birthplace_city');
-            $table->integer('national_identity');
-            $table->string('residence');
-            $table->string('arrondissement');
-            $table->string('job');
-            $table->string('mother');
-            $table->string('father');
-            $table->string('city_cardID_was_created');
-            $table->date('cardID_was_created');
+            $table->string('first_name')->nullable();
+            $table->date('birthday')->nullable();
+            $table->string('birthplace_city')->nullable();
+            $table->integer('national_identity')->nullable();
+            $table->string('residence')->nullable();
+            $table->string('arrondissement')->nullable();
+            $table->string('job')->nullable();
+            $table->string('mother')->nullable();
+            $table->string('father')->nullable();
+            $table->string('city_cardID_was_created')->nullable();
+            $table->date('cardID_was_created')->nullable();
             $table->boolean('checked')->default(0);
             $table->timestamps();
 
