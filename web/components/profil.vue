@@ -1,9 +1,76 @@
 <template>
 	<div>
-		
 		<!-- front profil -->
 		<section>
-			<form>
+			<div>
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+				<div class="border-green-600 border-2">
+					<div class="flex items-center justify-center ">
+						<img src="https://st.depositphotos.com/2101611/3925/v/600/depositphotos_39258143-stock-illustration-businessman-avatar-profile-picture.jpg" class="rounded-full w-32">
+					</div>
+					<div class="mb-4 mt-4 grid flex grid-cols-2 md:ml-10 sm:ml-0">
+						<div class="mb-4 md:mr-2 md:mb-0">
+							<label class="block mb-2 text-sm font-bold text-gray-700" for="password">
+							Anarana : <span class="font-normal">{{nom}}</span>
+							</label>
+						</div>
+					
+						<div class="">
+							<label class="block mb-2 text-sm font-bold text-gray-700" for="c_password">
+							Fanampiny : <span class="font-normal">{{prenom}}</span>
+							</label>
+						</div>
+						<div class="">
+							<label class="block mb-2 text-sm font-bold text-gray-700" for="c_password">
+							Daty nahaterahana : <span class="font-normal">{{datenaiss}}</span>
+							</label>
+						</div>
+						<div class="">
+							<label class="block mb-2 text-sm font-bold text-gray-700" for="c_password">
+							Tao : <span class="font-normal">{{lieunaiss}}</span>
+							</label>
+						</div>
+						<div class="">
+							<label class="block mb-2 text-sm font-bold text-gray-700" for="c_password">
+							Ray niteraka : <span class="font-normal">{{pere}}</span>
+							</label>
+						</div>
+						<div class="">
+							<label class="block mb-2 text-sm font-bold text-gray-700" for="c_password">
+							Reny niteraka : <span class="font-normal">{{mere}}</span>
+							</label>
+						</div>
+						<div class="">
+							<label class="block mb-2 text-sm font-bold text-gray-700" for="c_password">
+							Laharana karapanondro : <span class="font-normal">{{CIN}}</span>
+							</label>
+						</div>
+						<div class="inline-flex">
+							<label class="block mb-2 text-sm font-bold text-gray-700" for="c_password">
+							Natao t@ : <span class="font-normal">{{dateCIN}}</span>
+							</label>
+							<label class="block mb-2 text-sm font-bold text-gray-700 ml-2" for="c_password">
+							tao : <span class="font-normal">{{lieuCIN}}</span>
+							</label>
+						</div>
+						<div class="">
+							<label class="block mb-2 text-sm font-bold text-gray-700" for="c_password">
+							Fonenana : <span class="font-normal">{{adresse}}</span>
+							</label>
+						</div>
+						<div class="">
+							<label class="block mb-2 text-sm font-bold text-gray-700" for="c_password">
+							Boriboritany : <span class="font-normal">{{arrondissement}}</span>
+							</label>
+						</div>
+						<div></div>
+						<div>
+							<button class="bg-green-600 max-w-14 text-white p-1 px-2 rounded" @click="edited">Edit <i class="fas fa-user-edit"></i></button>
+						</div>
+					</div>
+				</div>
+            </div>
+			<form >
 				<div class="mb-4">
 					<label class="block mb-2 text-sm font-bold text-gray-700" for="name">
 						ANARANA/ Nom: 
@@ -74,6 +141,35 @@
 
 		<!-- back profil -->
 		<section></section>
-
+		
+	
 	</div>
+
 </template>
+<script>
+		export default{
+			name:'profil',
+			data : ()=>({
+				nom :"DAVID",
+				prenom : 'Christiano',
+				datenaiss:'17 mai 2001',
+				lieunaiss: 'Ambatomitsangana',
+				pere:'ANDRIANTSITOHAINA',
+				mere: 'Ranjavanirina',
+				CIN: 1018798798278289,
+				dateCIN: '14-05-20',
+				lieuCIN: 'Arivonimamo',
+				adresse: 'IVC 12 AMBATOMITSANGANA',
+				arrondissement: 'Tana III',
+				edit: false
+			}),
+			methods:{
+				edited : ()=>{
+					this.edit = true
+				},
+				confirm : ()=>{
+					this.edit = false
+				}
+			}
+		}
+</script>
