@@ -1,8 +1,4 @@
-    <style>
-      .gradient {
-        background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
-      }
-    </style>
+
 <template>
 
   <div class="pl-28 pr-28 ">
@@ -36,7 +32,7 @@
       </p>
     </div>
   </div>
-</div>
+<div></div>
 </template>
 <script>
 export default {}
