@@ -1,13 +1,13 @@
 <template>
   <div class="max-w-full">
-    	<div class="min-w-full justify-center " :class="oks? 'hidden' : 'block'">
+    	<div class="min-w-full justify-center " :class="statusForm? 'hidden' : 'block'">
 			<div class="flex justify-center">
 				<!-- Row -->
 
 					<!-- Col -->
 					<div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
-						<h3 class="cursor-pointer pt-4 text-2xl text-center" v-on:click="sat">Create an Account!</h3>
-            <h3 class="cursor-pointer pt-4 text-2xl text-center text-blue-500" v-on:click="sot">Login</h3>
+						<h3 class="cursor-pointer pt-4 text-2xl text-center" v-on:click="shown">Create an Account!</h3>
+            <h3 class="cursor-pointer pt-4 text-2xl text-center text-blue-500" v-on:click="hide">Login</h3>
 
 						<form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
 							<div class="mb-4">
@@ -55,7 +55,7 @@
 							<div class="text-center">
 								<a
 									class="cursor-pointer inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-									 v-on:click="sat"
+									 v-on:click="shown"
 								>
 									Create your compte
 								</a>
@@ -67,14 +67,14 @@
 		</div>
 
 
-		<div class="container min-w-full justify-center" :class="oks? 'block' : 'hidden'">
+		<div class="container min-w-full justify-center" :class="statusForm? 'block' : 'hidden'">
 			<div class="flex justify-center">
 				<!-- Row -->
 
 					<!-- Col -->
 					<div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
-						<h3 class="cursor-pointer pt-4 text-2xl text-center text-blue-500" v-on:click="sat">Create an Account!</h3>
-            <h3 class="cursor-pointer pt-4 text-2xl text-center" v-on:click="sot">Login</h3>
+						<h3 class="cursor-pointer pt-4 text-2xl text-center text-blue-500" v-on:click="hide">Create an Account!</h3>
+            <h3 class="cursor-pointer pt-4 text-2xl text-center" v-on:click="shown">Login</h3>
 
 						<form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
 							<div class="mb-4 md:flex md:justify-between">
@@ -157,7 +157,7 @@
 							<div class="text-center">
 								<a
 									class="cursor-pointer inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-									 v-on:click="sot"
+									 v-on:click="hide"
 								>
 									Already have an account? Login!
 								</a>
@@ -177,14 +177,14 @@ export default {
   data: () => ({
     message: "bonjour le monde",
     nom: "Christiano",
-    oks: false
+    statusForm: false
   }),
   methods : {
-    sat : function(){
-      this.oks = true
+    shown : function(){
+      this.statusForm = true
     },
-    sot : function(){
-      this.oks = false
+    hide : function(){
+      this.statusForm = false
     }
   }
 }
