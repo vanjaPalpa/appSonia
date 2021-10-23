@@ -19,7 +19,41 @@
         </aside>
         <section class="w-full p-4 ">
           <div class="w-full h-64  p-4 text-md">
-            <profil :data_citizen="data_citizen"></profil>
+            <profil :data_citizen="data_citizen" @editBouton="showModal"></profil>
+
+            <form v-if="showEditForm">
+              <label for="name">name</label>
+              <input type="text">
+
+              <button @click="edit">fermer</button>
+            </form>
+
+            <transition name="fade">
+
+                <div v-show="show_modal" class="fixed inset-0 z-30">
+
+
+                  <div v-show="show_modal" @click="showModal()" class="bg-filter bg-white opacity-25 fixed inset-0 w-full h-full z-20">
+                  </div>
+
+                  <main class="flex flex-col items-center justify-center h-full w-full">
+                      <transition name="fade-up-down">
+                          <div v-show="show_modal" class="modal-wrapper inline-block flex items-center z-30">
+                              <div class="modal px-4 max-w-md mx-auto xl:max-w-5xl lg:max-w-5xl md:max-w-2xl ml-11 bg-white max-h-screen shadow-lg flex-row rounded relative">
+                                  <class class="modal-body p-5 border-solid border-red-500">
+                                    <button class="px-5 py-2 absolute float-right" @click="showModal()">X</button>
+                                      <modal-form></modal-form>
+                                  </class>
+                                  <div class="modal-footer py-3 px-5 border0-t text-right">
+                                  </div>
+                              </div>
+                          </div>
+                      </transition>
+
+
+                  </main>
+                </div>
+            </transition>
 
           </div>
         </section>
@@ -58,6 +92,8 @@ export default {
   data(){
     return {
       user:'',
+      show_modal: false,
+      showEditForm:false,
       data_citizen:{
         nom :"DAVID",
 				prenom : 'Christiano',
@@ -77,7 +113,71 @@ export default {
     async logout(){
       let token = this.$store.getters.getToken
       this.$store.dispatch('logout',token)
-    }
+    },
+    edit(){
+      if(this.showEditForm == true){
+        this.showEditForm = false
+      }
+      this.showEditForm = true
+    },
+    showModal(){
+            if(this.show_modal){
+              //stop screen scrolling
+              document.getElementsByTagName("html")[0].classList.remove('overflow-y-hidden');
+              this.show_modal = false;
+            }else{
+              document.getElementsByTagName("html")[0].classList.add('overflow-y-hidden');
+              this.show_modal = true;
+            }
+          }
   }
 }
 </script>
+
+<style>
+
+  .modal-body{
+    max-height: 500px;
+  }
+  .bg-gray-800-opacity{
+    background-color: #2D374850;
+  }
+  @media screen and (max-width: 768px){
+    .modal-body {
+        max-height: 400px;
+    }
+  }
+
+  /* animation for vue transition tag */
+
+  .fade-up-down-enter-active {
+    transition: all 0.3s ease;
+  }
+  .fade-up-down-leave-active {
+    transition: all 0.3s ease;
+  }
+  .fade-up-down-enter {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  .fade-up-down-leave-to {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+
+  .fade-enter-active{
+      -webkit-transition: opacity 2s;
+      transition: opacity .3s;
+
+  }
+  .fade-leave-active {
+      transition: opacity .3s;
+  }
+
+  .fade-enter,
+  .fade-leave-to{
+      opacity: 0;
+  }
+
+
+  </style>
