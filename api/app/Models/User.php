@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Document;
+use App\Models\CitizenData;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -46,5 +47,10 @@ class User extends Authenticatable
     public function documents()
     {
         return $this->hasMany(Document::class);
+    }
+
+    public function citizenData()
+    {
+        return $this->hasOne(CitizenData::class);
     }
 }
