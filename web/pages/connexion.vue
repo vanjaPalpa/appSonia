@@ -4,6 +4,7 @@
       <div class="flex justify-center">
       <!-- Row -->
 
+
         <!-- Col -->
         <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
           <h3 class="cursor-pointer pt-4 text-2xl text-center" v-on:click="shown">Create an Account!</h3>
