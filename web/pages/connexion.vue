@@ -203,15 +203,21 @@ export default {
       this.statusForm = false
     },
 
-    register() {
-      console.log('this register')
-      this.$router.push("espaceCitoyen")
+    async register() {
+      try {
+        this.$store.dispatch('register',this.formRegister)
+        this.$router.push("espaceCitoyen")
+      } catch (error) {
+        console.log(error.response.data.errors)
+      }
+
     },
     async login() {
       try{
         this.$store.dispatch('login',this.formLogin)
         console.log('this login')
-        this.$router.push("espaceCitoyen")
+
+        await this.$router.push('espaceCitoyen')
       }catch (error) {
         console.log(error.response.data.errors)
       }

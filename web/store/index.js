@@ -1,5 +1,3 @@
-import axios from '@nuxtjs/axios'
-
 export const state = () => ({
   auth:{
     user:null,
@@ -40,14 +38,16 @@ export const actions = {
   },
   async logout({commit},token){
     commit('logout')
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`
-    let response = await axios.post('/api/logout')
+    this.$axios.setToken(token, 'Bearer')
+    // this.$axios.defaults.headers.common.Authorization = `Bearer ${token}`
+    let response = await this.$axios.post('/api/logout')
     localStorage.removeItem('user')
     console.log(response.data.message)
+    this.$router.push('connexion')
 
   },
   async register({commit},user){
-    let response = await axios.post('/api/register', user)
+    let response = await this.$axios.post('/api/register', user)
 
     commit('setUser',response.data)
     localStorage.setItem('user', JSON.stringify(response.data))
