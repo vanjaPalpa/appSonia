@@ -25,11 +25,15 @@
                     </div>
                   </div>
                 </td>
-                <td class="px-4 py-3 text-ms font-semibold border">{{ user.year }}</td>
+                <td class="px-4 py-3 text-sm border">prenom</td>
+                <td class="px-4 py-3 text-ms font-semibold border">{{ user.bithday }}</td>
+                <td class="px-4 py-3 text-sm border">{{ user.birthplace_city }}</td>
+                <td class="px-4 py-3 text-xs border">CIN</td>
                 <td class="px-4 py-3 text-xs border">
                   <span v-bind:class="user.color" class="px-2 py-1 font-semibold leading-tight rounded-sm">{{ user.status }}</span>
                 </td>
-                <td class="px-4 py-3 text-sm border">{{ user.date }}</td>
+
+
               </tr>
             </tbody>
           </table>

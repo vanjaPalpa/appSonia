@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main class="flex w-full h-screen">
+    <main v-if="isAuthenticated" class="flex w-full h-screen">
       <aside class="w-80 h-screen bg-gray shadow-md w-fulll hidden sm:block">
         <div class="flex flex-col justify-between h-screen p-4 bg-gray-800">
             <div class="text-sm">
@@ -26,19 +26,37 @@
         </div>
       </section>
     </main>
+    <div v-else>
+      <a href="/connexion">Login</a>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   layout:"admin",
+  mounted(){
+
+    this.user = JSON.parse(localStorage.getItem('user'));
+
+    if(this.user){
+      this.$store.commit('setUser',this.user)
+    }
+
+  },
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters.getStatus;  // it check if user isAuthenticated
+    }
+  },
   data(){
     return {
+      user:'',
       tableHead:[
         'dashbaord'
       ],
       tableHeadID:[
-        'Name','age','status','date'
+        'Name','prenom','birthday','birthplace_city','national_identity','status'
       ],
       tableHeadDocument:[
         'Name document','path','status','date'
@@ -47,26 +65,26 @@ export default {
       users:[
         {
           name:"Jennica",
-          year: 19,
+          birthplace_city: 'Itasy',
           profession:'developer',
           status: "Acceptable",
-          date: "10/03/2002",
+          bithday: "10/03/2002",
           color: "bg-green-100"
         },
         {
           name:"malala",
-          year: 20,
+          birthplace_city: 'fianara',
           profession:'student',
           status: "pending",
-          date: "04/02/2001",
+          bithday: "04/02/2001",
           color: "text-orange-700 bg-gray-100"
         },
         {
           name:"safidy",
-          year: 21,
+          birthplace_city: 'tana',
           profession:'professor',
           status: "Unacceptable",
-          date: "17/07/2000",
+          bithday: "17/07/2000",
           color: "bg-red-100 text-red-700"
         }
       ]
@@ -74,7 +92,8 @@ export default {
   },
   methods:{
     logout(){
-      alert('logoutButton')
+      let token = this.$store.getters.getToken
+      this.$store.dispatch('logout',token)
     },
     switchContent(content){
       this.tableHead = content
