@@ -62,7 +62,7 @@
 						</div>
 						<div></div>
 						<div>
-							<button class="bg-green-600 max-w-14 text-white p-1 px-2 rounded" @click="edited">Edit <i class="fas fa-user-edit"></i></button>
+							<button class="bg-green-600 max-w-14 text-white p-1 px-2 rounded" @click="send_editBoutton">Edit <i class="fas fa-user-edit"></i></button>
 						</div>
 					</div>
 				</div>
@@ -80,12 +80,9 @@
 				edit: false
 			}),
 			methods:{
-				edited : ()=>{
-					this.edit = true
-				},
-				confirm : ()=>{
-					this.edit = false
-				}
+				send_editBoutton(){
+          this.$emit('editBouton')
+        }
 			}
 		}
 </script>
