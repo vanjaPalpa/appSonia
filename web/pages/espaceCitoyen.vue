@@ -31,6 +31,7 @@
               </div>
           </div>
         </aside>
+
         <section class="w-full p-4 ">
           <div class="w-full h-64  p-4 text-md"><profil></profil></div>
           </section>
