@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use App\Models\Document;
+use App\Models\CitizenData;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\RequestCivilStatus;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -46,5 +48,15 @@ class User extends Authenticatable
     public function documents()
     {
         return $this->hasMany(Document::class);
+    }
+
+    public function citizenData()
+    {
+        return $this->hasOne(CitizenData::class);
+    }
+
+    public function resquestCivilsStatus()
+    {
+        return $this->hasMany(RequestCivilStatus::class);
     }
 }
