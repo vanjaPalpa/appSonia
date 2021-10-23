@@ -22,14 +22,6 @@
               <div class="text-sm">
                 <div class="bg-gray-900 text-white p-5 rounded cursor-pointer">Profil</div>
                 <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">Mes documents</div>
-                <!-- <div class="bg-gray-700 text-blue-300 p-2 rounded mt-2 cursor-pointer">Board</div>
-                <div class="bg-gray-900 flex justify-between items-center text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
-                  <span>Reports</span>
-                  <span class="w-4 h-4 bg-blue-600 rounded-full text-white text-center font-normal text-xs">5</span>
-                </div>
-                <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">Releases</div>
-                <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">Components</div>
-                <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">Repository</div> -->
               </div>
 
               <div class="flex p-3 text-white bg-red-500 rounded cursor-pointer text-center text-sm">
