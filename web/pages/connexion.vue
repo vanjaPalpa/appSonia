@@ -94,7 +94,7 @@
                   v-model="formRegister.name"
                 />
               </div>
-              <div class="md:ml-2">
+              <!-- <div class="md:ml-2">
                 <label class="block mb-2 text-sm font-bold text-gray-700" for="lastName">
                   Last Name
                 </label>
@@ -104,7 +104,7 @@
                   type="text"
                   placeholder="Last Name"
                 />
-              </div>
+              </div> -->
             </div>
             <div class="mb-4">
               <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
