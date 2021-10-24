@@ -7,7 +7,7 @@
 			<h2 class="mt-5 text-3xl font-bold text-gray-900">
         Verifier document
 			</h2>
-			<p class="mt-2 text-sm text-gray-400">validation des documents</p>
+			<p class="mt-2 text-sm text-gray-400">Verifier des documents</p>
 		</div>
         <form class="mt-8 space-y-3" action="#" method="POST">
                     <div class="grid grid-cols-1 space-y-2">
@@ -20,7 +20,7 @@
                                     </svg>
                                     <div class="flex flex-auto max-h-48 w-2/5 mx-auto -mt-10">
                                     </div>
-                                    <p class="pointer-none text-gray-500 "><span class="text-sm">Deplacer le fichier ici! </span><br /> or <a href="" id="" class="text-blue-600 hover:underline">Choisir le fichier </a> dans votre machine</p>
+                                    <p class="pointer-none text-gray-500 "><span class="text-sm">Deplacer le fichier ici! </span><br /> ou <a href="" id="" class="text-blue-600 hover:underline">Choisir le fichier </a> dans votre machine</p>
                                 </div>
                                 <input type="file" class="hidden">
                             </label>

@@ -7,13 +7,13 @@
 
         <!-- Col -->
         <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
-          <h3 class="cursor-pointer pt-4 text-2xl text-center" v-on:click="shown">Create an Account!</h3>
+          <h3 class="cursor-pointer pt-4 text-2xl text-center" v-on:click="shown">Créer un compte!</h3>
           <h3 class="cursor-pointer pt-4 text-2xl text-center text-blue-500" v-on:click="hide">Login</h3>
 
           <form @submit.prevent="login" class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
             <div class="mb-4">
               <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
-                Email or username
+                Email ou nom d'utilisateur
               </label>
               <input
                 class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -27,7 +27,7 @@
 
             <div class="mb-4">
               <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
-                Password
+                Mot de passe
               </label>
               <input
                 class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -53,7 +53,7 @@
                 class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
                 href="#"
               >
-                Forgot Password?
+                Mot de passe oubliée
               </a>
             </div>
             <div class="text-center">
@@ -76,7 +76,7 @@
 
         <!-- Col -->
         <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
-          <h3 class="cursor-pointer pt-4 text-2xl text-center text-blue-500" v-on:click="hide">Create an Account!</h3>
+          <h3 class="cursor-pointer pt-4 text-2xl text-center text-blue-500" v-on:click="hide">Crée un compte</h3>
           <h3 class="cursor-pointer pt-4 text-2xl text-center" v-on:click="shown">Login</h3>
 
           <form @submit.prevent="register" class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
