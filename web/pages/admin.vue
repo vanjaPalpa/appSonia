@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  layout:"admin",
+  layout:"adminLayout",
   mounted(){
 
     this.user = JSON.parse(localStorage.getItem('user'));
