@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CitizenController;
@@ -22,6 +23,8 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/login', [AuthController::class, 'login']);
 
+Route::post('generate-pdf', [PDFController::class, 'generatePDF']);
+
 Route::group(['middleware' => ['auth:sanctum']],function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::put('/user/{id}', [UserController::class, 'update']);
@@ -30,6 +33,8 @@ Route::group(['middleware' => ['auth:sanctum']],function () {
 
     Route::post('/request-civils', [RequestCivilController::class, 'create']);
     Route::get('/request-civils', [RequestCivilController::class, 'listRequest']);
+
+    Route::get('allCitizen',[CitizenController::class, 'getAllCitizen']);
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

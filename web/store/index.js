@@ -2,7 +2,9 @@ export const state = () => ({
   auth:{
     user:null,
     loggedIn:false
-  }
+  },
+  profile:null,
+  requestCivil:null
 })
 
 export const mutations = {
@@ -13,6 +15,12 @@ export const mutations = {
   logout(state) {
     state.auth.user = null,
     state.auth.loggedIn = false
+  },
+  setProfile(state,profile){
+    state.profile = profile
+  },
+  setRequestCivil(state,request){
+    state.requestCivil = request
   }
 }
 
@@ -25,6 +33,12 @@ export const getters = {
   },
   getToken(state){
     return state.auth.user.token
+  },
+  getProfile(state){
+    return state.profile
+  },
+  getRequestCivil(state){
+    return state.setRequestCivil
   }
 }
 
@@ -34,7 +48,7 @@ export const actions = {
 
     commit('setUser',response.data)
     localStorage.setItem('user', JSON.stringify(response.data))
-    console.log('login succes')
+    this.$router.push('citoyen')
   },
   async logout({commit},token){
     commit('logout')
@@ -53,4 +67,14 @@ export const actions = {
     localStorage.setItem('user', JSON.stringify(response.data))
     console.log('register succes')
   },
+  async getProfile({commit},token){
+    this.$axios.setToken(token, 'Bearer')
+    let response = await this.$axios.get('/api/profile')
+    commit('setProfile',response.data.citizen_data)
+  },
+  async sendRequest({commit},data){
+    this.$axios.setToken(data.token, 'Bearer')
+    let response = await this.$axios.post('/api/request-civils',data.form)
+    commit('setRequestCivil',response.data.request_civil)
+  }
 }

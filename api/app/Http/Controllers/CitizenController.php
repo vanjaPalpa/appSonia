@@ -24,4 +24,10 @@ class CitizenController extends Controller
             'citizen_data' => $citizen
         ]);
     }
+
+    public function getAllCitizen(){
+        return response([
+            'allCitizen' => User::with('citizenData')->get()
+        ]);
+    }
 }
