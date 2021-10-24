@@ -183,6 +183,18 @@
 <script>
 export default {
   name : 'connexion',
+  mounted(){
+
+    this.user = JSON.parse(localStorage.getItem('user'));
+
+    if(this.user){
+      this.$store.commit('setUser',this.user)
+      return this.$router.push('citoyen')
+    }else{
+      return this.$router.push('connexion')
+    }
+
+  },
   data: () => ({
     formRegister:{
       name:null,
@@ -207,7 +219,6 @@ export default {
     async register() {
       try {
         this.$store.dispatch('register',this.formRegister)
-        this.$router.push("espaceCitoyen")
       } catch (error) {
         console.log(error.response.data.errors)
       }

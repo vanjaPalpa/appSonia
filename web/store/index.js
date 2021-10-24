@@ -48,9 +48,15 @@ export const actions = {
 
     commit('setUser',response.data)
     localStorage.setItem('user', JSON.stringify(response.data))
-    this.$router.push('citoyen')
+    console.log(response.data.user.name)
+    if(response.data.user.name == "admin"){
+      this.$router.push('admin')
+    }else{
+      this.$router.push('citoyen')
+    }
+
   },
-  async logout({commit},token){
+  async logout({commit}){
     commit('logout')
     let user = JSON.parse(localStorage.getItem('user'));
     this.$axios.setToken(user.token, 'Bearer')
@@ -68,6 +74,7 @@ export const actions = {
     commit('setUser',response.data)
     localStorage.setItem('user', JSON.stringify(response.data))
     console.log('register succes')
+    this.$router.push('citoyen')
   },
   async getProfile({commit}){
     let user = JSON.parse(localStorage.getItem('user'));
