@@ -88,13 +88,30 @@ export default {
     }
   },
   methods:{
-    async sendForm(){
-      this.$axios.setHeader('Content-Type', 'blob', [
-      'post'
-    ])
-      let response = await this.$axios.post('/api/generate-pdf',this.form,{responseType: 'blob'})
+    // async sendPDFtoSign(pdfContent){
+    //   let response = await fetch('localhost:8080/upload',{ method: 'POST', body:JSON.stringify({
+    //           file: new FormData(pdfContent),
+    //   }) });
 
-      download(response.data,'actedenaissacen.pdf',response.headers['content-type'])
+    //   console.log(response.data)
+
+    // },
+    async sendForm(){
+    //   this.$axios.setHeader('Content-Type', 'blob', [
+    //   'post'
+    // ])
+    //   let response = await this.$axios.post('/api/generate-pdf',this.form,{responseType: 'blob'})
+
+    //   // let pdf = download(response.data,'actedenaissacen.pdf',response.headers['content-type'])
+
+
+    //   let res = await fetch('http://localhost:8080/upload',{ method: 'POST', body:JSON.stringify({
+    //           file: new FormData(response.data),
+    //   }) });
+
+    let response = await this.$axios.post('/api/generate-pdf',this.form)
+
+      console.log(response.data)
     }
   }
 }
