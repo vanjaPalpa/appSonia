@@ -12,6 +12,7 @@
         <form @submit.prevent="uploadDocument" class="mt-8 space-y-3" action="#" method="POST">
                     <div class="grid grid-cols-1 space-y-2">
                                     <label class="text-sm font-bold text-gray-500 tracking-wide">Attach Document</label>
+                                    <input v-model="sonia" id="sonia" type="text" placeholder="eto sonia" class="block mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600" />
                         <div class="flex items-center justify-center w-full">
                             <label class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center">
                                 <div class="h-full w-full text-center flex flex-col items-center justify-center items-center  ">
@@ -46,15 +47,17 @@
 export default {
   data(){
     return {
-      document:''
+      sonia:''
     }
   },
   methods:{
     async uploadDocument(){
       const fileInput = document.querySelector('.hidden') ;
+      // const fileInputSign = document.querySelector('#sonia');
       const formData = new FormData();
 
       formData.append('file', fileInput.files[0]);
+      formData.append('sign', this.sonia);
 
       const options = {
         method: 'POST',
@@ -65,7 +68,9 @@ export default {
         // }
       };
 
-      fetch('http://localhost:8080/verify', options);
+      let response = fetch('http://localhost:8080/verify', options);
+
+      console.log(response)
     }
   }
 }
