@@ -48,6 +48,8 @@ export default {
 
     if(this.user){
       this.$store.commit('setUser',this.user)
+    }else{
+      return this.$router.push('connexion')
     }
 
   },
@@ -99,8 +101,7 @@ export default {
   },
   methods:{
     logout(){
-      let token = this.$store.getters.getToken
-      this.$store.dispatch('logout',token)
+      this.$store.dispatch('logout')
     },
     switchContent(content){
       this.tableHead = content
