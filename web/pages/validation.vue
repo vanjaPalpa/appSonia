@@ -9,8 +9,8 @@
 			</h2>
 			<p class="mt-2 text-sm text-gray-400">validation des documents</p>
 		</div>
-        <form class="mt-8 space-y-3" action="#" method="POST">
-                   
+        <form @submit.prevent="uploadDocument" class="mt-8 space-y-3" action="#" method="POST">
+
                     <div class="grid grid-cols-1 space-y-2">
                                     <label class="text-sm font-bold text-gray-500 tracking-wide">Attach Document</label>
                         <div class="flex items-center justify-center w-full">
@@ -40,12 +40,41 @@
 	</div>
 </div>
 
+  </div>
+</template>
+
 <style>
 	.has-mask {
 		position: absolute;
 		clip: rect(10px, 150px, 130px, 10px);
 	}
 </style>
-  </div>
-</template>
- 
+
+<script>
+export default {
+  data(){
+    return {
+      document:''
+    }
+  },
+  methods:{
+    async uploadDocument(){
+      const fileInput = document.querySelector('.hidden') ;
+      const formData = new FormData();
+
+      formData.append('file', fileInput.files[0]);
+
+      const options = {
+        method: 'POST',
+        body: formData,
+        // If you add this, upload won't work
+        // headers: {
+        //   'Content-Type': 'multipart/form-data',
+        // }
+      };
+
+      fetch('http://localhost:8080/upload', options);
+    }
+  }
+}
+</script>
