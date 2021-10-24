@@ -3,7 +3,8 @@ export const state = () => ({
     user:null,
     loggedIn:false
   },
-  profile:null
+  profile:null,
+  requestCivil:null
 })
 
 export const mutations = {
@@ -17,6 +18,9 @@ export const mutations = {
   },
   setProfile(state,profile){
     state.profile = profile
+  },
+  setRequestCivil(state,request){
+    state.requestCivil = request
   }
 }
 
@@ -32,6 +36,9 @@ export const getters = {
   },
   getProfile(state){
     return state.profile
+  },
+  getRequestCivil(state){
+    return state.setRequestCivil
   }
 }
 
@@ -64,5 +71,10 @@ export const actions = {
     this.$axios.setToken(token, 'Bearer')
     let response = await this.$axios.get('/api/profile')
     commit('setProfile',response.data.citizen_data)
+  },
+  async sendRequest({commit},data){
+    this.$axios.setToken(data.token, 'Bearer')
+    let response = await this.$axios.post('/api/request-civils',data.form)
+    commit('setRequestCivil',response.data.request_civil)
   }
 }
