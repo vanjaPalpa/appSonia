@@ -217,8 +217,6 @@ export default {
       try{
         this.$store.dispatch('login',this.formLogin)
         console.log('this login')
-
-        await this.$router.push('espaceCitoyen')
       }catch (error) {
         console.log(error.response.data.errors)
       }
