@@ -10,7 +10,7 @@
         <div class="flex flex-col md:flex-row">
           <li class="m-4"><a href="/">Home</a></li>
           <li class="m-4"><a href="/connexion">Connexion</a></li>
-          <li class="m-4"><a href="/checkID">checkID</a></li>
+          <li class="m-4"><a href="/checkID">Verifier un document</a></li>
         </div>
       </ul>
     </nav>

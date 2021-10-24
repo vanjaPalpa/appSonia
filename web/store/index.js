@@ -52,7 +52,9 @@ export const actions = {
   },
   async logout({commit},token){
     commit('logout')
-    this.$axios.setToken(token, 'Bearer')
+    let user = JSON.parse(localStorage.getItem('user'));
+    this.$axios.setToken(user.token, 'Bearer')
+
     // this.$axios.defaults.headers.common.Authorization = `Bearer ${token}`
     let response = await this.$axios.post('/api/logout')
     localStorage.removeItem('user')
@@ -67,14 +69,16 @@ export const actions = {
     localStorage.setItem('user', JSON.stringify(response.data))
     console.log('register succes')
   },
-  async getProfile({commit},token){
-    this.$axios.setToken(token, 'Bearer')
+  async getProfile({commit}){
+    let user = JSON.parse(localStorage.getItem('user'));
+    this.$axios.setToken(user.token, 'Bearer')
     let response = await this.$axios.get('/api/profile')
     commit('setProfile',response.data.citizen_data)
   },
   async sendRequest({commit},data){
-    this.$axios.setToken(data.token, 'Bearer')
-    let response = await this.$axios.post('/api/request-civils',data.form)
+    let user = JSON.parse(localStorage.getItem('user'));
+    this.$axios.setToken(user.token, 'Bearer')
+    let response = await this.$axios.post('/api/request-civils',data)
     commit('setRequestCivil',response.data.request_civil)
   }
 }
