@@ -19,9 +19,11 @@
         Tout d'abord, les utilisateurs doivent s'inscrire:<br>
       </p>
 
-      <p class="ml-11 text-gray-900 text-justify pl-52">
+      <p class="ml-11 text-gray-900">
         * Remplir les formulaires.<br>
-        * Sauvegarder et envoyer toutes les informations.<br>
+        * Sauvegarder et envoyer toutes les données.<br>
+        * Attendre la validation des données <br>
+        * Telecharger le PDF reçus <br>
       </p>
 
       <p class="ml-7 text-gray-900">
