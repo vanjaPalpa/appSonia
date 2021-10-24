@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use PDF;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class PDFController extends Controller
 {
@@ -24,7 +25,10 @@ class PDFController extends Controller
         ];
 
         $pdf = PDF::loadView('myPDF', $data);
+        $response = Http::attach('file',$pdf,'acte.pdf')->post('http://localhost:8080/upload');
 
-        return $pdf->download('itsolutionstuff.pdf');
+        return response([
+            'message' => $response->data
+        ]);
     }
 }
