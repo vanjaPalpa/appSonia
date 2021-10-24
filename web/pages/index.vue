@@ -40,6 +40,8 @@
         <p class="text-gray-900 pl-5 text-justify pb-3">
           * Remplir les formulaires.<br>
           * Sauvegarder et envoyer toutes les informations.<br>
+          * Attendre la validation des données <br>
+          * Telecharger le PDF reçus <br>
         </p>
 
         <p class="text-gray-900 text-left">
@@ -48,7 +50,7 @@
         </p>
       </div>
     </div>
-  </div>
+</div>
 </template>
 <script>
 export default {}
