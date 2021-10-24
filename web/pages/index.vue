@@ -15,20 +15,37 @@
   right: 0%;
   z-index: -5;
 }
+#btnlog:hover{
+  background-color: white;
+  color:rgb(37, 153, 207);
+}
+#btngit:hover{
+  background-color: white;
+  color:rgb(43, 45, 46);
+}
 
 </style>
 <template>
 
   <div class="px-8 bgim" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <div class="deg"></div>
-    <div class="mb-14 max-w-md bottom-44">
+    <div class="mb-14 max-w-md">
       <h1 class="text-2xl font-black text-gray-700 mb-4 pt-10">Description du projet</h1>
       <p class="text-gray-900 text-xl text-right text-justify"> Application créant un Identité unique des citoyens tout en visant à certifier les documents d'état civil par un sceau digital et une signature numérique.
         l'application garantit la vérification, authenticité des citoyens et des documents d'état civil.
       </p>
+      <div>
+      <button class=" p-2 mt-3 rounded-full bg-blue-500 ml-5 text-white border-2 border-blue-500" id="btnlog">
+        <a href="../connexion"> Commencer <i class="fas fa-chevron-circle-right"></i></a>
+      </button>
+       <button class="bg-gray-600 p-2 mt-3 px-6 rounded-full ml-5 text-white border-2 border-gray-600 " id="btngit">
+        <a href="https://github.com/vanjaPalpa/appSonia"> Github  <i class="fab fa-github"></i> </a>
+      </button>
+      </div>
     </div>
 
-    <div class="max-w-lg ">
+    <div class="max-w-lg mt-50">
       <h1  class="text-2xl font-black text-gray-700 my-4">Aide d'utilisation de cette application</h1>
 
       <div class="r text-xl">
