@@ -28,6 +28,13 @@
     </main>
     <div v-else>
       <a href="/connexion">Login</a>
+      <form>
+        <label>Admin login </label>
+        <input type="text" name="user" id="">
+        <input type="password" name="password" id="">
+
+        <button type="submit">connexion</button>
+      </form>
     </div>
   </div>
 </template>

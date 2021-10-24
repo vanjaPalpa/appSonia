@@ -20,9 +20,9 @@
 
       <section class="w-full p-4 ">
         <div class="w-full h-64  p-4 text-md">
-          <profil :data_citizen="getProfile" @editBouton="showModal"></profil>
+          <profil :data_citizen="data_citizen" @editBouton="showModal"></profil>
 
-          <transition name="fade">
+          <!-- <transition name="fade">
 
             <div v-show="show_modal" class="fixed inset-0 z-30">
 
@@ -45,7 +45,7 @@
                 </transition>
               </main>
             </div>
-          </transition>
+          </transition> -->
         </div>
       </section>
     </main>
@@ -66,19 +66,12 @@ export default {
     if(this.user){
       this.$store.commit('setUser',this.user)
     }
+    let token = this.$store.getters.getToken
+    this.$store.dispatch('getProfile',token)
   },
   computed: {
       isAuthenticated() {
         return this.$store.getters.getStatus;  // it check if user isAuthenticated
-      },
-      async getProfile(){
-        let token = this.$store.getters.getToken
-        this.$axios.setToken(token, 'Bearer')
-        let response = await this.$axios.get('/api/profile')
-        console.log(response.data)
-
-        return response.data.citizen_data
-
       }
   },
   data(){
@@ -86,19 +79,7 @@ export default {
       user:'',
       show_modal: false,
       showEditForm:false,
-      data_citizen:{
-        nom :"DAVID",
-				prenom : 'Christiano',
-				datenaiss:'17 mai 2001',
-				lieunaiss: 'Ambatomitsangana',
-				pere:'ANDRIANTSITOHAINA',
-				mere: 'Ranjavanirina',
-				CIN: 1018798798278289,
-				dateCIN: '14-05-20',
-				lieuCIN: 'Arivonimamo',
-				adresse: 'IVC 12 AMBATOMITSANGANA',
-				arrondissement: 'Tana III',
-      }
+      data_citizen:this.$store.getters.getProfile
     }
   },
   methods:{
@@ -113,15 +94,15 @@ export default {
       this.showEditForm = true
     },
     showModal(){
-            if(this.show_modal){
-              //stop screen scrolling
-              document.getElementsByTagName("html")[0].classList.remove('overflow-y-hidden');
-              this.show_modal = false;
-            }else{
-              document.getElementsByTagName("html")[0].classList.add('overflow-y-hidden');
-              this.show_modal = true;
-            }
-          }
+      if(this.show_modal){
+        //stop screen scrolling
+        document.getElementsByTagName("html")[0].classList.remove('overflow-y-hidden');
+        this.show_modal = false;
+      }else{
+        document.getElementsByTagName("html")[0].classList.add('overflow-y-hidden');
+        this.show_modal = true;
+      }
+    }
   }
 }
 </script>

@@ -30,6 +30,8 @@ Route::group(['middleware' => ['auth:sanctum']],function () {
 
     Route::post('/request-civils', [RequestCivilController::class, 'create']);
     Route::get('/request-civils', [RequestCivilController::class, 'listRequest']);
+
+    Route::get('allCitizen',[CitizenController::class, 'getAllCitizen']);
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
