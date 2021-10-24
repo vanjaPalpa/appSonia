@@ -97,21 +97,21 @@ export default {
 
     // },
     async sendForm(){
-    //   this.$axios.setHeader('Content-Type', 'blob', [
-    //   'post'
-    // ])
-    //   let response = await this.$axios.post('/api/generate-pdf',this.form,{responseType: 'blob'})
+      this.$axios.setHeader('Content-Type', 'blob', [
+      'post'
+    ])
+      let response = await this.$axios.post('/api/generate-pdf',this.form,{responseType: 'blob'})
 
-    //   // let pdf = download(response.data,'actedenaissacen.pdf',response.headers['content-type'])
+      download(response.data,'actedenaissacen.pdf',response.headers['content-type'])
 
 
     //   let res = await fetch('http://localhost:8080/upload',{ method: 'POST', body:JSON.stringify({
     //           file: new FormData(response.data),
     //   }) });
 
-    let response = await this.$axios.post('/api/generate-pdf',this.form)
+    // let response = await this.$axios.post('/api/generate-pdf',this.form)
 
-      console.log(response.data)
+    //   console.log(response.data)
     }
   }
 }

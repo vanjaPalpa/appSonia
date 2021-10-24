@@ -25,10 +25,8 @@ class PDFController extends Controller
         ];
 
         $pdf = PDF::loadView('myPDF', $data);
-        $response = Http::attach('file',$pdf,'acte.pdf')->post('http://localhost:8080/upload');
+        // $response = Http::attach('file',$pdf,'acte.pdf')->post('http://localhost:8080/upload');
 
-        return response([
-            'message' => $response->data
-        ]);
+        return $pdf->download('acteDeNaissance.pdf');
     }
 }
