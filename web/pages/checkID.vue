@@ -68,9 +68,10 @@ export default {
         // }
       };
 
-      let response = fetch('http://localhost:8080/verify', options);
+      let response = await fetch('http://localhost:8080/verify', options);
 
       console.log(response)
+
     }
   }
 }

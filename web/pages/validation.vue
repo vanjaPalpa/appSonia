@@ -73,7 +73,10 @@ export default {
         // }
       };
 
-      fetch('http://localhost:8080/upload', options);
+      let response = await fetch('http://localhost:8080/upload', options);
+
+      console.log(response)
+
     }
   }
 }
